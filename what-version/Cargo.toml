@@ -1,6 +1,6 @@
 [package]
 name = "what-version"
-version = "0.3.0"
+version = "0.4.0"
 description = "CLI to determine the highest semver version from a list of versions that satisfies all given version requirements."
 edition = "2021"
 documentation = "https://github.com/sgoudham/what-version#readme"
