@@ -22,8 +22,8 @@ jobs:
           config-file: .github/release-please-config.json
           manifest-file: .github/release-please-manifest.json
     outputs:
-      release_created: ${{ steps.release.outputs.release_created }}
-      tag_name: ${{ steps.release.outputs.tag_name }}
+      binary_release_created: ${{ steps.release.outputs['what-version--release_created'] == 'true' }}
+      binary_tag_name: ${{ steps.release.outputs['what-version--tag_name'] }}
       library_release_created: ${{ steps.release.outputs['what-version-core--release_created'] == 'true' }}
 
   release-lib:
@@ -56,7 +56,7 @@ jobs:
   release-binary:
     runs-on: ${{ matrix.os }}
     needs: release-please
-    # if: ${{ needs.release-please.outputs.release_created }}
+    if: ${{ needs.release-please.outputs.binary_release_created == 'true' }}
     strategy:
       fail-fast: false
       matrix:
@@ -89,13 +89,13 @@ jobs:
           mv "target/release/${EXECUTABLE}${EXE_SUFFIX}" "./target/${BINARY_NAME}"
           echo "binary=target/${BINARY_NAME}" >> $GITHUB_OUTPUT
 
+      - name: Upload to release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload "${{ needs.release-please.outputs.binary_tag_name }}" ${{ steps.build.outputs.binary }}
+
       - name: Publish binary to crates.io
         if: ${{ matrix.os == 'ubuntu-latest' }}
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
         run: cargo publish -p what-version
-
-      - name: Upload to release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload "${{ needs.release-please.outputs.tag_name }}" ${{ steps.build.outputs.binary }}
