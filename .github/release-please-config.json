@@ -6,6 +6,7 @@
       "release-type": "rust"
     },
     "what-version": {
+      "include-component-in-tag": false,
       "release-type": "rust"
     }
   }

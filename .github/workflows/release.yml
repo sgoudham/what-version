@@ -22,8 +22,8 @@ jobs:
           config-file: .github/release-please-config.json
           manifest-file: .github/release-please-manifest.json
     outputs:
-      binary_release_created: ${{ steps.release.outputs['what-version--release_created'] == 'true' }}
-      binary_tag_name: ${{ steps.release.outputs['what-version--tag_name'] }}
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
       library_release_created: ${{ steps.release.outputs['what-version-core--release_created'] == 'true' }}
 
   release-lib:
@@ -56,7 +56,7 @@ jobs:
   release-binary:
     runs-on: ${{ matrix.os }}
     needs: release-please
-    if: ${{ needs.release-please.outputs.binary_release_created == 'true' }}
+    if: ${{ needs.release-please.outputs.release_created == 'true' }}
     strategy:
       fail-fast: false
       matrix:
@@ -98,4 +98,4 @@ jobs:
       - name: Upload to release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload "${{ needs.release-please.outputs.binary_tag_name }}" ${{ steps.build.outputs.binary }}
+        run: gh release upload "${{ needs.release-please.outputs.tag_name }}" ${{ steps.build.outputs.binary }}
