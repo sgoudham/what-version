@@ -1,6 +1,6 @@
 [package]
 name = "what-version-core"
-version = "0.0.0"
+version = "0.1.0"
 description = "Determines the highest semver version from a list of versions that satisfies all given version requirements."
 edition = "2024"
 documentation = "https://github.com/sgoudham/what-version#readme"
