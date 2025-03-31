@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/sgoudham/what-version/compare/what-version-v0.2.1...what-version-v0.2.2) (2025-03-31)
+
+
+### Bug Fixes
+
+* cargo metadata for publishing ([13c6b1e](https://github.com/sgoudham/what-version/commit/13c6b1e2b41138bcda10fee436f6e2c80dee5459))
+
 ## [0.2.1](https://github.com/sgoudham/what-version/compare/what-version-v0.2.0...what-version-v0.2.1) (2025-03-31)
 
 
