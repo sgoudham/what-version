@@ -1,7 +1,12 @@
 [package]
 name = "what-version"
 version = "0.2.1"
+description = "CLI to determine the highest semver version from a list of versions that satisfies all given version requirements."
 edition = "2021"
+documentation = "https://github.com/sgoudham/what-version#readme"
+homepage = "https://github.com/sgoudham/what-version"
+repository = "https://github.com/sgoudham/what-version"
+license = "MIT"
 
 [dependencies]
 clap = { version = "4.5.34", features = ["derive"] }
