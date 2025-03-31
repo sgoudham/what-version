@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/sgoudham/what-version/compare/what-version-v0.2.2...what-version-v0.2.3) (2025-03-31)
+
+
+### Bug Fixes
+
+* wildcards not allowed on crates.io ([c07b7b5](https://github.com/sgoudham/what-version/commit/c07b7b5a36b2115290b57b541e4670fb314eacfa))
+
 ## [0.2.2](https://github.com/sgoudham/what-version/compare/what-version-v0.2.1...what-version-v0.2.2) (2025-03-31)
 
 
