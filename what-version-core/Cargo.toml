@@ -1,0 +1,15 @@
+[package]
+name = "what-version-core"
+version = "0.0.0"
+description = "Determines the highest semver version from a list of versions that satisfies all given version requirements."
+edition = "2024"
+documentation = "https://github.com/sgoudham/what-version#readme"
+homepage = "https://github.com/sgoudham/what-version"
+repository = "https://github.com/sgoudham/what-version"
+license = "MIT"
+
+[dependencies]
+semver = "1.0.26"
+
+[dev-dependencies]
+yare = "3.0.0"

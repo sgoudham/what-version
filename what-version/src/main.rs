@@ -4,6 +4,7 @@ use clap::Parser;
 use clap_stdin::MaybeStdin;
 use semver::{Version, VersionReq};
 use serde::{Deserialize, Serialize};
+use what_version_core::what_version;
 
 #[derive(Debug, Parser)]
 pub struct Args {
@@ -41,7 +42,7 @@ fn main() {
         .filter_map(|ver| VersionReq::parse(ver.version_req.as_str()).ok())
         .collect::<HashSet<VersionReq>>();
 
-    let version = what_version::what_version(version_reqs, versions);
+    let version = what_version(version_reqs, versions);
     if let Ok(chosen_version) = version {
         println!("Chosen Version: {}", &chosen_version);
         if env::var("GITHUB_ACTIONS").is_ok() {

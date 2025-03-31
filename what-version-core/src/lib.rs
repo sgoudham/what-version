@@ -19,7 +19,7 @@ use semver::{Version, VersionReq};
 /// ```rust
 /// use std::collections::HashSet;
 /// use semver::{Version, VersionReq};
-/// use what_version::what_version;
+/// use what_version_core::what_version;
 ///
 /// let version_requirements: HashSet<VersionReq> = vec![
 ///     "^2.0".parse().unwrap(),
@@ -38,7 +38,7 @@ use semver::{Version, VersionReq};
 ///
 /// let result = what_version(version_requirements, versions);
 ///
-/// assert_eq!(result.ok(), Some(Version::parse("2.2.0").unwrap()));
+/// assert_eq!(result.unwrap(), Version::parse("2.2.0").unwrap());
 /// ```
 pub fn what_version(
     version_requirements: HashSet<VersionReq>,
