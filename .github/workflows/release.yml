@@ -56,7 +56,7 @@ jobs:
   release-binary:
     runs-on: ${{ matrix.os }}
     needs: release-please
-    if: ${{ needs.release-please.outputs.release_created }}
+    # if: ${{ needs.release-please.outputs.release_created }}
     strategy:
       fail-fast: false
       matrix:
