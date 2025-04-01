@@ -1,6 +1,6 @@
 [package]
 name = "what-version-core"
-version = "0.2.1"
+version = "1.0.0"
 description = "Determines the highest semver version from a list of versions that satisfies all given version requirements."
 edition = "2024"
 documentation.workspace = true

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0](https://github.com/sgoudham/what-version/compare/v0.4.0...v1.0.0) (2025-04-01)
+
+
+### Miscellaneous Chores
+
+* release 1.0.0 ([47b26c2](https://github.com/sgoudham/what-version/commit/47b26c2ad40724d0e19d1ee17a64beebd42b537f))
+
 ## [0.4.0](https://github.com/sgoudham/what-version/compare/v0.3.0...v0.4.0) (2025-04-01)
 
 
