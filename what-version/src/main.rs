@@ -1,4 +1,4 @@
-use std::{collections::HashSet, env, fs::write};
+use std::{collections::HashSet, env, fs::write, process::exit};
 
 use clap::Parser;
 use clap_stdin::MaybeStdin;
@@ -50,6 +50,7 @@ fn main() {
             .unwrap();
         }
     } else {
-        error!("No valid versions found");
+        error!("Could not find a version compatible with given version requirements, aborting...");
+        exit(1);
     }
 }
