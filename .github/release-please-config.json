@@ -1,7 +1,12 @@
 {
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
   "last-release-sha": "77d80e1109d0b4459dc15a80d6b8e93929cc1700",
-  "plugins": ["cargo-workspace"],
+  "plugins": [
+    {
+      "type": "cargo-workspace",
+      "merge": false
+    }
+  ],
   "packages": {
     "what-version-core": {
       "release-type": "rust"
