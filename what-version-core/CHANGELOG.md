@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/sgoudham/what-version/compare/what-version-core-v0.2.0...what-version-core-v0.2.1) (2025-04-01)
+
+
+### Bug Fixes
+
+* return error struct ([#15](https://github.com/sgoudham/what-version/issues/15)) ([d097928](https://github.com/sgoudham/what-version/commit/d0979283b2bc68a10fb665067bd1199c38226020))
+
 ## [0.2.0](https://github.com/sgoudham/what-version/compare/what-version-core-v0.1.0...what-version-core-v0.2.0) (2025-03-31)
 
 
