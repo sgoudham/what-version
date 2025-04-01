@@ -79,8 +79,8 @@ jobs:
       - name: Build
         id: build
         run: |
-          cargo build --release --locked
-          cargo test --release --locked
+          cargo build --release --locked -p what-version
+          cargo test --release --locked -p what-version
 
           export BINARY_NAME="${EXECUTABLE}-$(rustc --version --verbose | grep host | cut -d ' ' -f 2)${EXE_SUFFIX}"
           mv "target/release/${EXECUTABLE}${EXE_SUFFIX}" "./target/${BINARY_NAME}"

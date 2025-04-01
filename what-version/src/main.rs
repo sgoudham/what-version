@@ -2,8 +2,9 @@ use std::{collections::HashSet, env, fs::write};
 
 use clap::Parser;
 use clap_stdin::MaybeStdin;
+use env_logger::Env;
+use log::{debug, error, info};
 use semver::{Version, VersionReq};
-use serde::{Deserialize, Serialize};
 use what_version_core::what_version;
 
 #[derive(Debug, Parser)]
@@ -12,39 +13,34 @@ pub struct Args {
     pub versions: MaybeStdin<String>,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
-pub struct Match {
-    pub path: String,
-    pub version_req: String,
-}
-
 fn main() {
+    env_logger::Builder::from_env(Env::default().default_filter_or("debug")).init();
+
     let args = Args::parse();
-    let parsed_version_reqs: Vec<Match> =
+    let parsed_version_reqs: Vec<String> =
         serde_json::from_str(&args.version_requirements).expect("Failed to parse JSON");
     let parsed_versions: Vec<String> =
         serde_json::from_str(&args.versions).expect("Failed to parse JSON");
-
-    dbg!(&parsed_version_reqs);
-    dbg!(&parsed_versions);
+    debug!("Parsed version requirements: {:?}", &parsed_version_reqs);
+    debug!("Parsed versions: {:?}", &parsed_versions);
 
     let versions = parsed_versions
         .into_iter()
         .map(|v| {
-            if v.starts_with("v") {
-                return Version::parse(&v[1..]).expect("version is semver compatible");
+            if let Some(stripped) = v.strip_prefix("v") {
+                return Version::parse(stripped).expect("version is semver compatible");
             }
             Version::parse(&v).expect("version is semver compatible")
         })
         .collect();
     let version_reqs = parsed_version_reqs
         .iter()
-        .filter_map(|ver| VersionReq::parse(ver.version_req.as_str()).ok())
+        .filter_map(|ver| VersionReq::parse(ver).ok())
         .collect::<HashSet<VersionReq>>();
 
     let version = what_version(version_reqs, versions);
     if let Ok(chosen_version) = version {
-        println!("Chosen Version: {}", &chosen_version);
+        info!("Chosen Version: '{}'", &chosen_version);
         if env::var("GITHUB_ACTIONS").is_ok() {
             let github_output_path = env::var("GITHUB_OUTPUT").unwrap();
             write(
@@ -54,6 +50,6 @@ fn main() {
             .unwrap();
         }
     } else {
-        eprintln!("No valid versions found");
+        error!("No valid versions found");
     }
 }
