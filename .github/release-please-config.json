@@ -4,7 +4,7 @@
   "plugins": [
     {
       "type": "cargo-workspace",
-      "merge": false
+      "merge": true
     }
   ],
   "separate-pull-requests": true,
