@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0](https://github.com/sgoudham/what-version/compare/what-version-core-v0.2.1...what-version-core-v1.0.0) (2025-04-01)
+
+
+### Miscellaneous Chores
+
+* release 1.0.0 ([47b26c2](https://github.com/sgoudham/what-version/commit/47b26c2ad40724d0e19d1ee17a64beebd42b537f))
+
 ## [0.2.1](https://github.com/sgoudham/what-version/compare/what-version-core-v0.2.0...what-version-core-v0.2.1) (2025-04-01)
 
 
