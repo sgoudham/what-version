@@ -1,6 +1,18 @@
-use std::collections::HashSet;
-
 use semver::{Version, VersionReq};
+use std::collections::HashSet;
+use std::error::Error;
+use std::fmt::{self, Display};
+
+#[derive(Debug)]
+pub struct NoValidVersion;
+
+impl Display for NoValidVersion {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "No Valid Version")
+    }
+}
+
+impl Error for NoValidVersion {}
 
 /// Determines the highest version from a list of versions that satisfies all given version requirements.
 ///
@@ -43,15 +55,15 @@ use semver::{Version, VersionReq};
 pub fn what_version(
     version_requirements: HashSet<VersionReq>,
     versions: Vec<Version>,
-) -> Result<Version, ()> {
+) -> Result<Version, NoValidVersion> {
     versions
         .iter()
         .filter(|ver| version_requirements.iter().all(|req| req.matches(ver)))
         .max_by(|arg0: &&semver::Version, other: &&semver::Version| {
-            Version::cmp_precedence(*arg0, *other)
+            Version::cmp_precedence(arg0, other)
         })
         .cloned()
-        .ok_or(())
+        .ok_or(NoValidVersion)
 }
 
 #[cfg(test)]
