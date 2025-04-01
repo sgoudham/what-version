@@ -7,6 +7,7 @@
       "merge": false
     }
   ],
+  "separate-pull-requests": true,
   "packages": {
     "what-version-core": {
       "release-type": "rust"
