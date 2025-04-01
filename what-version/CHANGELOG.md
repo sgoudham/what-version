@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/sgoudham/what-version/compare/v0.3.0...v0.4.0) (2025-04-01)
+
+
+### Features
+
+* exit with code `1` on error ([87aea47](https://github.com/sgoudham/what-version/commit/87aea47cbf507c5ec070024a463f0ec6a78632a8))
+
 ## [0.3.0](https://github.com/sgoudham/what-version/compare/v0.2.0...v0.3.0) (2025-04-01)
 
 
