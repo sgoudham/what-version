@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.2.1](https://github.com/sgoudham/what-version/compare/v0.2.0...v0.2.1) (2025-04-01)
+
 ## [0.2.0](https://github.com/sgoudham/what-version/compare/v0.1.0...v0.2.0) (2025-03-31)
 
 
