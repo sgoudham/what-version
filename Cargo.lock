@@ -257,7 +257,7 @@ dependencies = [
  "semver",
  "serde",
  "serde_json",
- "what-version-core",
+ "what-version-core 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -266,6 +266,15 @@ version = "0.2.0"
 dependencies = [
  "semver",
  "yare",
+]
+
+[[package]]
+name = "what-version-core"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "640aaa3b23a847284ed3560b2259ffc84ae94dc79f96366cc7c078cf047e7066"
+dependencies = [
+ "semver",
 ]
 
 [[package]]

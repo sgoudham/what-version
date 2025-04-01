@@ -3,10 +3,10 @@ name = "what-version-core"
 version = "0.2.0"
 description = "Determines the highest semver version from a list of versions that satisfies all given version requirements."
 edition = "2024"
-documentation = "https://github.com/sgoudham/what-version#readme"
-homepage = "https://github.com/sgoudham/what-version"
-repository = "https://github.com/sgoudham/what-version"
-license = "MIT"
+documentation.workspace = true
+homepage.workspace = true
+repository.workspace = true
+license.workspace = true
 
 [dependencies]
 semver = "1.0.26"

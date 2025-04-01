@@ -1,3 +1,9 @@
 [workspace]
 resolver = "2"
 members = ["what-version", "what-version-core"]
+
+[workspace.package]
+documentation = "https://github.com/sgoudham/what-version#readme"
+homepage = "https://github.com/sgoudham/what-version"
+repository = "https://github.com/sgoudham/what-version"
+license = "MIT"
