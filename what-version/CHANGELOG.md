@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/sgoudham/what-version/compare/v0.2.0...v0.3.0) (2025-04-01)
+
+
+### Features
+
+* don't require path and version ([#19](https://github.com/sgoudham/what-version/issues/19)) ([50f3f8c](https://github.com/sgoudham/what-version/commit/50f3f8c1c47cb335e91b0f7a1a7ced717d92ca7e))
+
 ## [0.2.0](https://github.com/sgoudham/what-version/compare/v0.1.0...v0.2.0) (2025-03-31)
 
 
